@@ -1,0 +1,128 @@
+import { Box, useTheme } from "@mui/material";
+import myLogo from "../../assets/myLogo.webp";
+import html from "../../assets/html.png";
+import css from "../../assets/css.png";
+import js from "../../assets/js.png";
+import react from "../../assets/react.png";
+import api from "../../assets/api.png";
+import next from "../../assets/next.png";
+import ts from "../../assets/ts.png";
+import postman from "../../assets/postman.png";
+import axios from "../../assets/axios.png";
+import mui from "../../assets/mui.png";
+import framerMotion from "../../assets/framermotion.png";
+import i18n from "../../assets/i18n.png";
+import reactRouter from "../../assets/reactRouter.png";
+import redux from "../../assets/redux.png";
+
+import Skills from "./Components/Skills";
+import { motion } from "framer-motion";
+
+export default function LeftHead() {
+  const theme = useTheme();
+  const baseSkills = [html, css, js];
+  const advSkills = [ts, react, next, api];
+  const myTools = [postman, axios, mui, framerMotion, i18n, reactRouter, redux];
+
+  const orbitAnimation = (delay, duration) => ({
+    opacity: [0, 1],
+    scale: [0, 1],
+    rotate: [0, 360],
+    transition: {
+      opacity: { duration: 1.2, delay: delay },
+      scale: { duration: 1.2, delay: delay },
+      rotate: {
+        delay: delay + 1.2,
+        duration: duration,
+        repeat: Infinity,
+        ease: "linear",
+      },
+    },
+  });
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100%",
+      }}
+    >
+      <Box
+        component={motion.img}
+        initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{
+          duration: 0.8,
+          ease: "easeOut",
+          delay: 1,
+        }}
+        src={myLogo}
+        alt="My Logo"
+        sx={{
+          width: "150px",
+          filter: "drop-shadow(0px 0px 20px rgba(153, 255, 204, 0.4))",
+        }}
+      />
+      <Box
+        component={motion.div}
+        animate={orbitAnimation(1.5, 13)}
+        sx={{
+          height: "230px",
+          width: "230px",
+          position: "absolute",
+          border: `2px solid ${theme.palette.background.green}`,
+          borderRadius: "50%",
+          pointerEvents: "none",
+        }}
+      >
+        {baseSkills.map((skill, i) => {
+          const angle = (360 / baseSkills.length) * i;
+          return (
+            <Skills key={skill} angle={angle} radius="115px" logo={skill} />
+          );
+        })}
+      </Box>
+      <Box
+        component={motion.div}
+        animate={orbitAnimation(2, 17)}
+        sx={{
+          height: "330px",
+          width: "330px",
+          position: "absolute",
+          border: `2px solid ${theme.palette.background.green}`,
+          borderRadius: "50%",
+          pointerEvents: "none",
+        }}
+      >
+        {advSkills.map((skill, i) => {
+          const angle = (360 / advSkills.length) * i;
+          return (
+            <Skills key={skill} angle={angle} radius="165px" logo={skill} />
+          );
+        })}
+      </Box>
+      <Box
+        component={motion.div}
+        animate={orbitAnimation(2.5, 22)}
+        sx={{
+          height: "430px",
+          width: "430px",
+          position: "absolute",
+          border: `2px solid ${theme.palette.background.green}`,
+          borderRadius: "50%",
+          pointerEvents: "none",
+        }}
+      >
+        {" "}
+        {myTools.map((skill, i) => {
+          const angle = (360 / myTools.length) * i;
+          return (
+            <Skills key={skill} angle={angle} radius="215px" logo={skill} />
+          );
+        })}
+      </Box>
+    </Box>
+  );
+}
