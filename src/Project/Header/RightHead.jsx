@@ -43,6 +43,7 @@ export default function RightHead() {
       }}
     >
       {/* Line */}
+
       <Box
         component={motion.div}
         initial={{ height: 0 }}
@@ -53,33 +54,32 @@ export default function RightHead() {
           top: 0,
           left: 0,
           width: "4px",
+          height: "100%",
           bgcolor: "primary.main",
-          boxShadow: "0px 0px 10px primary.main",
         }}
       />
-      {/* ENGINEERING */}
+
       <Typography
         component={motion.h3}
         variants={itemVariants}
         variant="h3"
         sx={{
           fontWeight: 800,
-          letterSpacing: 2,
-          color: "text.primary",
           fontSize: { xs: "1.8rem", md: "2.5rem" },
+          textAlign: { xs: "center", md: "left" },
         }}
       >
         ENGINEERING
       </Typography>
-      {/* EXPERIENCES */}
+
       <Typography
         component={motion.h5}
         variants={itemVariants}
         variant="h5"
         sx={{
           mb: 2,
-          fontWeight: 500,
           color: "#affc518f",
+          textAlign: { xs: "center", md: "left" },
           letterSpacing: 1,
         }}
       >
@@ -94,10 +94,10 @@ export default function RightHead() {
           width: "100px",
           borderBottomWidth: 3,
           borderColor: "primary.main",
+          alignSelf: { xs: "center", md: "flex-start" },
         }}
       />
 
-      {/* Info Text */}
       <Typography
         component={motion.p}
         variants={itemVariants}
@@ -105,7 +105,7 @@ export default function RightHead() {
         sx={{
           lineHeight: 1.8,
           color: "text.secondary",
-          fontSize: "1.1rem",
+          fontSize: { xs: "0.95rem", md: "1.1rem" },
           textAlign: "justify",
         }}
       >
@@ -118,10 +118,16 @@ export default function RightHead() {
       <Button
         variant="contained"
         color="primary"
-        sx={{ mt: 5, "&:hover": { bgcolor: "#8bb953" } }}
+        sx={{
+          mt: 4,
+          alignSelf: { xs: "center", md: "flex-start" },
+          "&:hover": {
+            bgcolor: "#affc51b1",
+          },
+          px: 4,
+        }}
       >
-        {" "}
-        Download CV{" "}
+        Download CV
       </Button>
     </Box>
   );

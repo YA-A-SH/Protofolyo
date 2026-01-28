@@ -55,9 +55,11 @@ export default function AllConverter() {
   };
   return (
     <Container
+      maxWidth={false}
       sx={{
-        minHeight: "100vh",
-        minWidth: "100%",
+        height: { xs: "100%", sm: "100vh" },
+        // maxWidth: "100%",
+        width: "100vh",
         bgcolor: theme.palette.background.green,
         display: "flex",
         justifyContent: "center",
@@ -70,8 +72,8 @@ export default function AllConverter() {
         initial="hidden"
         animate="visible"
         sx={{
-          minHeight: "95vh",
-          minWidth: "99%",
+          height: "95%",
+          maxWidth: "98%",
           bgcolor: theme.palette.background.default,
           borderRadius: 4,
           display: "flex",
@@ -276,20 +278,20 @@ export default function AllConverter() {
             position: "absolute",
             left: 0,
             top: 0,
-            width: { xs: "170px", md: "250px", lg: "300px" },
-            height: { xs: "30px", sm: "30px", md: "50px" },
+            width: { xs: "130px", md: "250px", lg: "300px" },
+            height: { xs: "50px", sm: "30px", md: "50px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 2,
             // bgcolor: "red",
+            px: 5,
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              mt: 2,
-              fontSize: { xs: "0.8rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: { xs: "1rem", md: "1.2rem", lg: "1.7rem" },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -305,19 +307,21 @@ export default function AllConverter() {
             position: "absolute",
             right: 0,
             top: 0,
-            width: { xs: "170px", md: "250px", lg: "300px" },
-            height: { xs: "30px", sm: "30px", md: "50px" },
+            width: { xs: "150px", md: "250px", lg: "300px" },
+            height: { xs: "50px", sm: "30px", md: "50px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 2,
+            // bgcolor: "red",
+            // ml: { xs: 1, sm: 0 },
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              mt: 2,
-              fontSize: { xs: "0.8rem", md: "1.2rem", lg: "1.7rem" },
+              ml: { xs: 1, sm: 0 },
+              fontSize: { xs: "0.9rem", md: "1.2rem", lg: "1.7rem" },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -329,27 +333,37 @@ export default function AllConverter() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
+            flexDirection: { xs: "column-reverse", md: "row" },
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "space-evenly",
             width: "100%",
             mt: 7,
-            mb: 5,
             px: { md: 10 },
             zIndex: 1,
-            gap: 5,
+            gap: { xs: 5, sm: 7, md: 10, lg: 20 },
           }}
         >
-          <Box sx={{ flex: 1, textAlign: "left", height: "70%", mt: "50px" }}>
+          {" "}
+          <Box
+            sx={{
+              flex: 1,
+              textAlign: "left",
+              height: "70%",
+              mb: { xs: 12, sm: 0 },
+              // mt: { xs: , md: 0 },
+            }}
+          >
             <RightHead />
-          </Box>
-
+          </Box>{" "}
           <Box
             sx={{
               flex: 1,
               display: "flex",
               justifyContent: "center",
               height: "70%",
+              position: "relative",
+              minHeight: "500px",
+              // mb: { xs: 5, sm: 0 },
             }}
           >
             <LeftHead />
@@ -361,14 +375,13 @@ export default function AllConverter() {
           variants={sideTitleVariants}
           sx={{
             position: "absolute",
-            left: 100,
+            left: 0,
             bottom: 0,
             width: { xs: "170px", md: "250px", lg: "300px" },
             height: { xs: "30px", sm: "30px", md: "50px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 2,
             mb: 1,
           }}
         >
@@ -376,7 +389,7 @@ export default function AllConverter() {
             variant="h6"
             sx={{
               mt: 2,
-              fontSize: { xs: "0.8rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: { xs: "1.3rem", md: "1.2rem", lg: "1.7rem" },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -399,13 +412,14 @@ export default function AllConverter() {
             alignItems: "center",
             zIndex: 2,
             mb: 1,
+            // bgcolor: "red",
           }}
         >
           <Typography
             variant="h6"
             sx={{
               mt: 2,
-              fontSize: { xs: "0.8rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: { xs: "0.7rem", md: "1.2rem", lg: "1.7rem" },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
