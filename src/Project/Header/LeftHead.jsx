@@ -39,6 +39,28 @@ export default function LeftHead() {
       },
     },
   });
+
+  const innerSize = {
+    xs: "100px",
+    ss: "160px",
+    sm: "290px",
+    md: "180px",
+    ms: "270px",
+  };
+  const middleSize = {
+    xs: "180px",
+    ss: "240px",
+    sm: "370px",
+    md: "250px",
+    ms: "350px",
+  };
+  const outerSize = {
+    xs: "260px",
+    ss: "320px",
+    sm: "450px",
+    md: "320px",
+    ms: "430px",
+  };
   return (
     <Box
       sx={{
@@ -61,7 +83,13 @@ export default function LeftHead() {
         src={myLogo}
         alt="My Logo"
         sx={{
-          width: "150px",
+          width: {
+            xs: "50px",
+            ss: "100px",
+            sm: "190px",
+            md: "110px",
+            ms: "170px",
+          },
           filter: "drop-shadow(0px 0px 20px rgba(153, 255, 204, 0.4))",
         }}
       />
@@ -69,8 +97,8 @@ export default function LeftHead() {
         component={motion.div}
         animate={orbitAnimation(1.5, 13)}
         sx={{
-          height: "230px",
-          width: "230px",
+          height: innerSize,
+          width: innerSize,
           position: "absolute",
           border: `2px solid ${theme.palette.background.green}`,
           borderRadius: "50%",
@@ -80,7 +108,7 @@ export default function LeftHead() {
         {baseSkills.map((skill, i) => {
           const angle = (360 / baseSkills.length) * i;
           return (
-            <Skills key={skill} angle={angle} radius="115px" logo={skill} />
+            <Skills key={skill} angle={angle} radius={innerSize} logo={skill} />
           );
         })}
       </Box>
@@ -88,8 +116,8 @@ export default function LeftHead() {
         component={motion.div}
         animate={orbitAnimation(2, 17)}
         sx={{
-          height: "330px",
-          width: "330px",
+          height: middleSize,
+          width: middleSize,
           position: "absolute",
           border: `2px solid ${theme.palette.background.green}`,
           borderRadius: "50%",
@@ -99,7 +127,12 @@ export default function LeftHead() {
         {advSkills.map((skill, i) => {
           const angle = (360 / advSkills.length) * i;
           return (
-            <Skills key={skill} angle={angle} radius="165px" logo={skill} />
+            <Skills
+              key={skill}
+              angle={angle}
+              radius={middleSize}
+              logo={skill}
+            />
           );
         })}
       </Box>
@@ -107,8 +140,8 @@ export default function LeftHead() {
         component={motion.div}
         animate={orbitAnimation(2.5, 22)}
         sx={{
-          height: "430px",
-          width: "430px",
+          height: outerSize,
+          width: outerSize,
           position: "absolute",
           border: `2px solid ${theme.palette.background.green}`,
           borderRadius: "50%",
@@ -119,7 +152,7 @@ export default function LeftHead() {
         {myTools.map((skill, i) => {
           const angle = (360 / myTools.length) * i;
           return (
-            <Skills key={skill} angle={angle} radius="215px" logo={skill} />
+            <Skills key={skill} angle={angle} radius={outerSize} logo={skill} />
           );
         })}
       </Box>

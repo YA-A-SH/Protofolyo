@@ -7,12 +7,14 @@ export default function Skills({ logo, angle, radius }) {
         position: "absolute",
         top: "50%",
         left: "50%",
-        transform: `
-          translate(-50%, -50%)
-          rotate(${angle}deg)
-          translateX(${radius})
-          rotate(-${angle}deg)
-        `,
+        transform: {
+          xs: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.xs} / 2)) rotate(-${angle}deg)`,
+          ss: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.ss} / 2)) rotate(-${angle}deg)`,
+          sm: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.sm} / 2)) rotate(-${angle}deg)`,
+          md: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.md} / 2)) rotate(-${angle}deg)`,
+          ms: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.ms} / 2)) rotate(-${angle}deg)`,
+        },
+
         pointerEvents: "auto",
       }}
     >
@@ -33,7 +35,7 @@ export default function Skills({ logo, angle, radius }) {
             transition: "0.3s",
           },
           "&:hover img": {
-            width: 44,
+            width: { xs: 25, ss: 35 },
           },
         }}
       >

@@ -1,21 +1,20 @@
-.theHeadContainer::after {
-  content: "";
-  width: 0;
-  border-style: solid;
-  border-width: 16px;
-  border-color: transparent transparent #1e1e1e #1e1e1e;
-  position: absolute;
-  left: 26.8%;
-  top: 37px;
+.loader {
+  animation: loaderAnimations 3s infinite both alternate;
 }
-.theHeadContainer::before {
-  content: "";
-  width: 0;
-  border-style: solid;
-  border-width: 16px;
-  border-color: transparent #1e1e1e #1e1e1e transparent;
-  position: absolute;
-  right: 26.8%;
-  top: 37px;
-  z-index: 999;
+@keyframes loaderAnimations {
+  0% {
+    transform: scale(0.1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.7) rotate(90deg);
+  }
+  50% {
+    transform: scale(2.1) rotate(180deg);
+  }
+  75% {
+    transform: scale(1.7) rotate(270deg);
+  }
+  100% {
+    transform: scale(0.1) rotate(360deg);
+  }
 }

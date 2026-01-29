@@ -34,12 +34,13 @@ export default function RightHead() {
         justifyContent: "center",
         background: "rgba(153, 255, 204, 0.05)",
         backdropFilter: "blur(10px)",
-        p: { xs: 3, md: 5 },
+        p: { xs: 3 },
         borderRadius: "24px",
         border: "1px solid rgba(153, 255, 204, 0.2)",
         boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.05)",
         position: "relative",
         overflow: "hidden",
+        mt: { ms: 5 },
       }}
     >
       {/* Line */}
@@ -103,7 +104,7 @@ export default function RightHead() {
         variants={itemVariants}
         variant="body1"
         sx={{
-          lineHeight: 1.8,
+          lineHeight: { xs: 1.8, md: 1.3, ms: 1.6 },
           color: "text.secondary",
           fontSize: { xs: "0.95rem", md: "1.1rem" },
           textAlign: "justify",

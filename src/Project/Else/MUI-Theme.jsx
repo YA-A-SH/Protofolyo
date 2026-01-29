@@ -20,6 +20,17 @@ const theme = createTheme({
   typography: {
     fontFamily: ["Macondo", "cursive"].join(","),
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      ss: 450,
+      sm: 600,
+      md: 900,
+      ms: 1050,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
 });
 
 export default theme;

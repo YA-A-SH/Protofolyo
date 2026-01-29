@@ -55,30 +55,34 @@ export default function AllConverter() {
   };
   return (
     <Container
+      disableGutters
       maxWidth={false}
       sx={{
-        height: { xs: "100%", sm: "100vh" },
-        // maxWidth: "100%",
-        width: "100vh",
+        minHeight: "100vh",
+        width: "100%",
         bgcolor: theme.palette.background.green,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        overflow: "hidden",
       }}
     >
       <Container
+        maxWidth={false}
         component={motion.div}
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         sx={{
-          height: "95%",
+          height: { xs: "99%", md: "96vh" },
           maxWidth: "98%",
           bgcolor: theme.palette.background.default,
           borderRadius: 4,
           display: "flex",
           justifyContent: "center",
           position: "relative",
+          mt: 1,
+          m: { sm: 1 },
         }}
       >
         {/* The Top Name */}
@@ -164,7 +168,15 @@ export default function AllConverter() {
             transition={{ duration: 0.8 }}
             variant="h4"
             color="primary.dark"
-            sx={{ px: 2 }}
+            sx={{
+              px: { xs: 0 },
+              fontSize: {
+                xs: "1.4rem",
+                ss: "1.6rem",
+                sm: "1.9rem",
+                md: "2.2rem",
+              },
+            }}
           >
             {Array.from("YA.A.SH").map((char, i) => (
               <motion.span
@@ -220,13 +232,13 @@ export default function AllConverter() {
             bgcolor: theme.palette.background.green,
             textAlign: "center",
             display: "flex",
-            justifyContent: "space-evenly",
+            justifyContent: { xs: "center", sm: "space-evenly" },
             alignItems: "center",
             flexDirection: "row",
             position: "absolute",
             bottom: 0,
             pt: 1.5,
-            px: { xs: 3, md: 4, xl: 6 },
+            px: { xs: 0, md: 4, xl: 6 },
 
             "&::after": {
               content: '""',
@@ -260,6 +272,7 @@ export default function AllConverter() {
               component={motion.button}
               variants={iconVariants}
               sx={{
+                fontSize: { xs: "1px" },
                 "&:hover": {
                   color: "primary.main",
                   bgcolor: "white",
@@ -278,20 +291,32 @@ export default function AllConverter() {
             position: "absolute",
             left: 0,
             top: 0,
-            width: { xs: "130px", md: "250px", lg: "300px" },
-            height: { xs: "50px", sm: "30px", md: "50px" },
+            width: {
+              xs: "90px",
+              ss: "120px",
+              sm: "150px",
+              md: "220px",
+              lg: "300px",
+            },
+            height: { xs: "50px", md: "70px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             zIndex: 2,
             // bgcolor: "red",
-            px: 5,
+            // px: { xs: 1 },
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              fontSize: { xs: "1rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: {
+                xs: "0.7rem",
+                ss: "0.9rem",
+                sm: "1.1rem",
+                md: "1.6rem",
+                lg: "1.7rem",
+              },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -307,8 +332,15 @@ export default function AllConverter() {
             position: "absolute",
             right: 0,
             top: 0,
-            width: { xs: "150px", md: "250px", lg: "300px" },
-            height: { xs: "50px", sm: "30px", md: "50px" },
+            width: {
+              xs: "100px",
+              ss: "130px",
+              sm: "143px",
+              md: "220px",
+              ms: "250px",
+              lg: "300px",
+            },
+            height: { xs: "50px", md: "70px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -321,7 +353,14 @@ export default function AllConverter() {
             variant="h6"
             sx={{
               ml: { xs: 1, sm: 0 },
-              fontSize: { xs: "0.9rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: {
+                xs: "0.62rem",
+                ss: "0.8rem",
+                sm: "1rem",
+                md: "1.5rem",
+                ms: "1.7rem",
+                lg: "1.7rem",
+              },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -337,10 +376,8 @@ export default function AllConverter() {
             alignItems: "center",
             justifyContent: "space-evenly",
             width: "100%",
-            mt: 7,
-            px: { md: 10 },
-            zIndex: 1,
-            gap: { xs: 5, sm: 7, md: 10, lg: 20 },
+            mt: { xs: 6, sm: 12, md: 7 },
+            gap: { xs: 2, ss: 3, sm: 7, md: 10, lg: 10 },
           }}
         >
           {" "}
@@ -349,8 +386,8 @@ export default function AllConverter() {
               flex: 1,
               textAlign: "left",
               height: "70%",
-              mb: { xs: 12, sm: 0 },
-              // mt: { xs: , md: 0 },
+              mb: { xs: 12 },
+              ml: { lg: 10 },
             }}
           >
             <RightHead />
@@ -362,8 +399,20 @@ export default function AllConverter() {
               justifyContent: "center",
               height: "70%",
               position: "relative",
-              minHeight: "500px",
-              // mb: { xs: 5, sm: 0 },
+              minHeight: {
+                xs: "300px",
+                ss: "350px",
+                sm: "450px",
+                md: "350px",
+                ms: "450px",
+              },
+              minWidth: {
+                xs: "300px",
+                ss: "350px",
+                sm: "450px",
+                md: "350px",
+                ms: "450px",
+              },
             }}
           >
             <LeftHead />
@@ -377,19 +426,33 @@ export default function AllConverter() {
             position: "absolute",
             left: 0,
             bottom: 0,
-            width: { xs: "170px", md: "250px", lg: "300px" },
+            width: {
+              xs: "100px",
+              ss: "150px",
+              sm: "200px",
+              md: "250px",
+              lg: "300px",
+            },
             height: { xs: "30px", sm: "30px", md: "50px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             mb: 1,
+            // bgcolor: "red",
+            ml: { md: 2 },
           }}
         >
           <Typography
             variant="h6"
             sx={{
               mt: 2,
-              fontSize: { xs: "1.3rem", md: "1.2rem", lg: "1.7rem" },
+              fontSize: {
+                xs: "0.8rem",
+                ss: "1.1rem",
+                sm: "1.5rem",
+                md: "1.9rem",
+                lg: "1.7rem",
+              },
               fontWeight: "bold",
               whiteSpace: "nowrap",
             }}
@@ -405,26 +468,44 @@ export default function AllConverter() {
             position: "absolute",
             right: 0,
             bottom: 0,
-            width: { xs: "170px", md: "250px", lg: "500px" },
-            height: { xs: "30px", sm: "30px", md: "50px" },
+            width: {
+              xs: "100px",
+              ss: "150px",
+              sm: "200px",
+              md: "300px",
+              lg: "400px",
+            },
+            height: { xs: "40px", ss: "50px", sm: "50px", md: "30px" },
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            zIndex: 2,
-            mb: 1,
+            flexWrap: "wrap",
             // bgcolor: "red",
+            mb: { sm: 0.4, md: 0, lg: 1 },
           }}
         >
           <Typography
             variant="h6"
             sx={{
-              mt: 2,
-              fontSize: { xs: "0.7rem", md: "1.2rem", lg: "1.7rem" },
+              textAlign: "center",
+              fontSize: {
+                xs: "0.7rem",
+                ss: "1rem",
+                sm: "1.1rem",
+                md: "1.2rem",
+                lg: "1.7rem",
+              },
               fontWeight: "bold",
-              whiteSpace: "nowrap",
             }}
           >
-            From Gaza -- Means War Engineer
+            From Gaza :{" "}
+            <Box
+              component="br"
+              sx={{
+                display: { xs: "block", md: "none" },
+              }}
+            />{" "}
+            Means War Engineer
           </Typography>
         </Box>
       </Container>
