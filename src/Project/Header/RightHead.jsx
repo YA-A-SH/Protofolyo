@@ -66,7 +66,7 @@ export default function RightHead() {
         variant="h3"
         sx={{
           fontWeight: 800,
-          fontSize: { xs: "1.8rem", md: "2.5rem" },
+          fontSize: { xs: "1.8rem", md: "2rem", lg: "2.4rem" },
           textAlign: { xs: "center", md: "left" },
         }}
       >
@@ -79,7 +79,7 @@ export default function RightHead() {
         variant="h5"
         sx={{
           mb: 2,
-          color: "#affc518f",
+          color: "#3eccfc",
           textAlign: { xs: "center", md: "left" },
           letterSpacing: 1,
         }}
@@ -106,7 +106,7 @@ export default function RightHead() {
         sx={{
           lineHeight: { xs: 1.8, md: 1.3, ms: 1.6 },
           color: "text.secondary",
-          fontSize: { xs: "0.95rem", md: "1.1rem" },
+          fontSize: { xs: "0.95rem", md: "0.9rem", lg: "1.2rem" },
           textAlign: "justify",
         }}
       >
@@ -123,7 +123,7 @@ export default function RightHead() {
           mt: 4,
           alignSelf: { xs: "center", md: "flex-start" },
           "&:hover": {
-            bgcolor: "#affc51b1",
+            bgcolor: "#3eccfc",
           },
           px: 4,
         }}

@@ -1,7 +1,7 @@
 import { alpha, Box, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 
-export default function Loader({ color = "#B0FC51" }) {
+export default function Loader({ color = "#c0edfc" }) {
   const theme = useTheme();
   return (
     <>
@@ -54,7 +54,7 @@ export default function Loader({ color = "#B0FC51" }) {
             mt: 4,
             fontWeight: 800,
             letterSpacing: 2,
-            color: "#96f521",
+            color: "#0dc2fe",
             fontSize: "0.75rem",
             textTransform: "uppercase",
           }}

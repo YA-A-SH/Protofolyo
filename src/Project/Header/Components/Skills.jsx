@@ -13,6 +13,7 @@ export default function Skills({ logo, angle, radius }) {
           sm: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.sm} / 2)) rotate(-${angle}deg)`,
           md: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.md} / 2)) rotate(-${angle}deg)`,
           ms: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.ms} / 2)) rotate(-${angle}deg)`,
+          lg: `translate(-50%, -50%) rotate(${angle}deg) translateX(calc(${radius.lg} / 2)) rotate(-${angle}deg)`,
         },
 
         pointerEvents: "auto",
