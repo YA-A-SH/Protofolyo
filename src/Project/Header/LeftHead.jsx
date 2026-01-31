@@ -44,7 +44,7 @@ export default function LeftHead() {
     ss: "160px",
     sm: "290px",
     md: "180px",
-    ms: "220px",
+    ms: "150px",
     lg: "280px",
   };
 
@@ -53,7 +53,7 @@ export default function LeftHead() {
     ss: "240px",
     sm: "370px",
     md: "250px",
-    ms: "300px",
+    ms: "230px",
     lg: "360px",
   };
 
@@ -62,7 +62,7 @@ export default function LeftHead() {
     ss: "320px",
     sm: "450px",
     md: "320px",
-    ms: "380px",
+    ms: "310px",
     lg: "440px",
   };
 
@@ -89,7 +89,7 @@ export default function LeftHead() {
             ss: "100px",
             sm: "190px",
             md: "110px",
-            ms: "170px",
+            lg: "170px",
           },
 
           filter: "drop-shadow(0px 0px 20px rgba(153, 255, 204, 0.4))",
@@ -100,15 +100,10 @@ export default function LeftHead() {
         animate={orbitAnimation(1.5, 13)}
         sx={{
           height: innerSize,
-
           width: innerSize,
-
           position: "absolute",
-
           border: `2px solid ${theme.palette.background.main}`,
-
           borderRadius: "50%",
-
           pointerEvents: "none",
         }}
       >

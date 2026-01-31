@@ -57,7 +57,7 @@ export default function NavBar({ handleSectionChange, section }) {
         position: "fixed",
         width: { xs: "90%", sm: "70%", md: "40%" },
         height: "60px",
-        top: { xs: 70, lg: 60 },
+        top: { xs: 70, xl: 60 },
         left: "50%",
         borderRadius: "50px",
         px: { xs: 1, sm: 3 },
@@ -114,7 +114,7 @@ export default function NavBar({ handleSectionChange, section }) {
                 whileHover={null}
                 sx={{
                   position: "absolute",
-                  top: -50,
+                  top: -51,
                   bgcolor: theme.palette.background.main,
                   border: `6px solid ${theme.palette.background.default}`,
                   boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",

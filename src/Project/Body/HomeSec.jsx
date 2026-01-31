@@ -30,14 +30,14 @@ export default function HomeSec() {
             ss: "350px",
             sm: "470px",
             md: "350px",
-            ms: "450px",
+            ms: "470px",
           },
           minWidth: {
             xs: "300px",
             ss: "350px",
             sm: "470px",
             md: "350px",
-            ms: "450px",
+            ms: "470px",
           },
           mb: { sm: 7 },
         }}
