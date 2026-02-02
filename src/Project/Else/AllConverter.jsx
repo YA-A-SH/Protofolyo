@@ -8,6 +8,7 @@ import HomeSec from "../Body/HomeSec";
 import { useState } from "react";
 import AboutMe from "../Body/AboutMe";
 import MyProjects from "../Body/MyProjects";
+import ContactMe from "../Body/ContactMe";
 export default function AllConverter() {
   const theme = useTheme();
 
