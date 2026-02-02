@@ -7,6 +7,7 @@ import NavBar from "./FixedPageItems/NavBar";
 import HomeSec from "../Body/HomeSec";
 import { useState } from "react";
 import AboutMe from "../Body/AboutMe";
+import MyProjects from "../Body/MyProjects";
 export default function AllConverter() {
   const theme = useTheme();
 
@@ -78,12 +79,13 @@ export default function AllConverter() {
           initial="hidden"
           animate="visible"
           sx={{
-            height: { xs: "99%", md: "96vh" },
+            minHeight: { xs: "99vh", md: "96vh" },
             maxWidth: "98%",
             bgcolor: theme.palette.background.default,
             borderRadius: 4,
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
             mt: 1,
             m: { sm: 1 },
           }}
@@ -97,15 +99,18 @@ export default function AllConverter() {
           {/* Main Content */}
           <Box
             sx={{
-              display: "flex",
-              flexDirection: { xs: "column-reverse", md: "row" },
+              flexGrow: 1,
+              minHeight: { xs: "auto", md: "60vh" },
+              height: "auto",
+              py: { xs: 8, md: 4 },
+              overflow: "visible",
+              minWidth: "99%",
+              mt: { xs: 15, md: 10 },
+              justifyContent: "center",
               alignItems: "center",
-              justifyContent: "space-evenly",
-              width: "100%",
               position: "relative",
-              overflow: "hidden",
-              mt: { xs: 18, sm: 20, lg: 12 },
-              gap: { xs: 2, ss: 3, sm: 7, md: 10, lg: 10 },
+              zIndex: 4,
+              flexDirection: { xs: "column-reverse", md: "row" },
             }}
           >
             <AnimatePresence mode="wait">
@@ -120,12 +125,13 @@ export default function AllConverter() {
                   display: "flex",
                   justifyContent: "space-evenly",
                   alignItems: "center",
+                  overflow: "hidden",
                   flexDirection: "inherit",
                 }}
               >
                 {section === "home" && <HomeSec />}
                 {section === "aboutMe" && <AboutMe />}
-                {section === "projects" && <Projects />}
+                {section === "projects" && <MyProjects />}
                 {section === "contact" && <ContactMe />}
               </motion.div>
             </AnimatePresence>

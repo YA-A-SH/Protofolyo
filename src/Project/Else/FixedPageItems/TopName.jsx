@@ -18,6 +18,15 @@ export default function TopNameAndBtmLinks() {
     hidden: { scale: 0, y: 20 },
     visible: { scale: 1, y: 0, transition: { type: "spring", damping: 4 } },
   };
+
+  const links = [
+    { icon: <GitHub />, href: "https://github.com/YA-A-SH" },
+    { icon: <Email />, href: "mailto:cr7yaser2004@gmail.com" },
+    {
+      icon: <LinkedIn />,
+      href: "https://www.linkedin.com/in/ya-a-sh-4494743a3",
+    },
+  ];
   return (
     <>
       <Stack
@@ -31,6 +40,7 @@ export default function TopNameAndBtmLinks() {
           alignItems: "center",
           flexDirection: "row",
           position: "absolute",
+          top: 0,
           px: { xs: 3, md: 4, xl: 6 },
 
           "&::after": {
@@ -199,11 +209,14 @@ export default function TopNameAndBtmLinks() {
           },
         }}
       >
-        {[<GitHub />, <Email />, <LinkedIn />].map((icon, index) => (
+        {links.map((link, index) => (
           <IconButton
             key={index}
-            component={motion.button}
+            component={motion.a}
+            href={link.href}
             variants={iconVariants}
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               fontSize: { xs: "1px" },
               "&:hover": {
@@ -212,7 +225,7 @@ export default function TopNameAndBtmLinks() {
               },
             }}
           >
-            {icon}
+            {link.icon}
           </IconButton>
         ))}
       </Stack>

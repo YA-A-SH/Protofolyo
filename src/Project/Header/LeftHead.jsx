@@ -45,7 +45,7 @@ export default function LeftHead() {
     sm: "290px",
     md: "180px",
     ms: "150px",
-    lg: "280px",
+    lg: "200px",
   };
 
   const middleSize = {
@@ -54,7 +54,7 @@ export default function LeftHead() {
     sm: "370px",
     md: "250px",
     ms: "230px",
-    lg: "360px",
+    lg: "280px",
   };
 
   const outerSize = {
@@ -63,17 +63,28 @@ export default function LeftHead() {
     sm: "450px",
     md: "320px",
     ms: "310px",
-    lg: "440px",
+    lg: "360px",
   };
 
   return (
     <Box
       sx={{
+        // bgcolor: "red",
         position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%",
+        height: {
+          xs: `calc(${outerSize.xs} + 80px)`,
+          sm: `calc(${outerSize.sm} + 100px)`,
+          lg: `calc(${outerSize.lg} + 20px)`,
+        },
+        width: {
+          xs: `calc(${outerSize.xs} + 80px)`,
+          // sm: `calc(${outerSize.sm} + 100px)`,
+          // lg: `calc(${outerSize.lg} + 120px)`,
+        },
+        flexShrink: 0,
       }}
     >
       <Box
@@ -89,10 +100,10 @@ export default function LeftHead() {
             ss: "100px",
             sm: "190px",
             md: "110px",
-            lg: "170px",
+            lg: "140px",
           },
 
-          filter: "drop-shadow(0px 0px 20px rgba(153, 255, 204, 0.4))",
+          filter: "drop-shadow(0px 0px 20px rgba(153, 228, 255, 0.88))",
         }}
       />
       <Box

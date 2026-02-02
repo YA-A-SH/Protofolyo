@@ -35,8 +35,9 @@ export default function RightAboutMe() {
       whileInView="visible"
       viewport={{ once: true }}
       sx={{
+        maxHeight: { xs: "auto", md: "60vh", lg: "70vh" },
+        overflowY: "auto",
         p: 2,
-        mt: { xs: 4, lg: 9 },
         background:
           "linear-gradient(135deg, rgba(153, 255, 204, 0.03) 0%, rgba(10, 25, 41, 0.8) 100%)",
         backdropFilter: "blur(12px)",
@@ -45,9 +46,8 @@ export default function RightAboutMe() {
         position: "relative",
         boxShadow:
           "0 10px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(153, 255, 204, 0.02)",
-        maxWidth: { xs: "100%", lg: "450px" },
-        scale: { md: 0.75, lg: 1 },
-        overflow: "hidden",
+        maxWidth: { xs: "100%", md: "400px" },
+        // overflow: "hidden",
       }}
     >
       <Box
@@ -60,7 +60,16 @@ export default function RightAboutMe() {
           background: `linear-gradient(to bottom, transparent, ${theme.palette.background.main}, transparent)`,
         }}
       />
-
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          right: 0,
+          width: "3px",
+          height: "100%",
+          background: `linear-gradient(to bottom, transparent, ${theme.palette.background.main}, transparent)`,
+        }}
+      />
       {/* Title */}
       <Typography
         component={motion.h4}
@@ -69,11 +78,11 @@ export default function RightAboutMe() {
         sx={{
           color: "#fff",
           fontWeight: 900,
-          mb: 1.7,
+          // mb: 1.7,
           textTransform: "uppercase",
           letterSpacing: 2,
-          textAlign: { xs: "center", md: "left" },
-          fontSize: { xs: "1.5rem", md: "1.8rem" },
+          textAlign: { xs: "center", lg: "left" },
+          fontSize: { xs: "1.5rem", lg: "1.8rem" },
         }}
       >
         Technical{" "}
@@ -87,10 +96,10 @@ export default function RightAboutMe() {
             <Typography
               variant="overline"
               sx={{
-                textAlign: { xs: "center", md: "left" },
+                textAlign: { xs: "center", lg: "left" },
                 color: "#3eccfc",
                 fontWeight: "bold",
-                mb: 1,
+                mb: { xs: 1, md: 0.5 },
                 display: "block",
                 letterSpacing: 1.5,
               }}
@@ -101,8 +110,8 @@ export default function RightAboutMe() {
               sx={{
                 display: "flex",
                 flexWrap: "wrap",
-                gap: 1.5,
-                justifyContent: { xs: "center", md: "flex-start" },
+                gap: { xs: 1.5, md: 1 },
+                justifyContent: { xs: "center", lg: "flex-start" },
               }}
             >
               {list.map((skill) => (
@@ -120,7 +129,7 @@ export default function RightAboutMe() {
                       bgcolor: theme.palette.background.main,
                       color: "#000",
                       transform: "translateY(-5px)",
-                      boxShadow: `0 5px 15px rgba(153, 255, 204, 0.3)`,
+                      boxShadow: `0 5px 15px rgba(153, 223, 255, 0.3)`,
                     },
                   }}
                 />
@@ -136,11 +145,11 @@ export default function RightAboutMe() {
         variants={itemVariants}
         variant="body2"
         sx={{
-          mt: 4,
+          mt: { xs: 4, md: 1 },
           color: "rgba(255,255,255,0.5)",
           fontStyle: "italic",
           textAlign: { xs: "center", md: "left" },
-          lineHeight: 1.6,
+          lineHeight: { xs: 1.6, md: 1.3 },
         }}
       >
         While these are my primary tools, I am proficient in many others and

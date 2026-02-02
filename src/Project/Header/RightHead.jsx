@@ -1,7 +1,7 @@
 import { Box, Typography, Divider, Button, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import DownloadIcon from "@mui/icons-material/Download"; // إضافة أيقونة بتعطي شكل أحلى
-
+import DownloadIcon from "@mui/icons-material/Download";
+import myCv from "../../assets/YA.A.SH-CV.pdf";
 export default function RightHead() {
   const theme = useTheme();
   const containerVariants = {
@@ -43,8 +43,11 @@ export default function RightHead() {
         boxShadow:
           "0 10px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(153, 255, 204, 0.02)",
         position: "relative",
-        overflow: "hidden",
-        mt: { ms: 5 },
+        maxWidth: "500px",
+        overflow: "visible",
+        height: "auto",
+        minWidth: { md: "300px" },
+        minHeight: { xs: "fit-content", md: "300px" },
       }}
     >
       <Box
@@ -78,13 +81,14 @@ export default function RightHead() {
         }}
       />
 
+      {/* ENGINEERING */}
       <Typography
         component={motion.h3}
         variants={itemVariants}
         variant="h3"
         sx={{
           fontWeight: 900,
-          fontSize: { xs: "1.8rem", md: "2rem", lg: "2.4rem" },
+          fontSize: { xs: "1.8rem", md: "2rem", xl: "2.4rem" },
           textAlign: { xs: "center", md: "left" },
           letterSpacing: -0.5,
           color: "#fff",
@@ -94,6 +98,7 @@ export default function RightHead() {
         ENGINEERING
       </Typography>
 
+      {/* EXPERIENCES */}
       <Typography
         component={motion.h5}
         variants={itemVariants}
@@ -124,16 +129,16 @@ export default function RightHead() {
         }}
       />
 
+      {/* body */}
       <Typography
         component={motion.p}
         variants={itemVariants}
         variant="body1"
         sx={{
-          lineHeight: { xs: 1.8, md: 1.3, ms: 1.6 },
+          lineHeight: { xs: 1.2, md: 1.3, ms: 1.6 },
           color: "rgba(255,255,255,0.7)",
-          fontSize: { xs: "0.95rem", md: "0.9rem", lg: "1.1rem" },
+          fontSize: { xs: "0.9rem", md: "0.9rem", xl: "1.1rem" },
           textAlign: "justify",
-          fontFamily: "'Inter', sans-serif",
         }}
       >
         As a Bachelor of{" "}
@@ -149,10 +154,12 @@ export default function RightHead() {
       </Typography>
 
       <Button
-        component={motion.button}
+        component={motion.a}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         variant="contained"
+        href={myCv}
+        download={myCv}
         startIcon={<DownloadIcon />}
         sx={{
           mt: 4,
@@ -171,7 +178,7 @@ export default function RightHead() {
           px: 4,
           py: 1.5,
           textTransform: "none",
-          fontSize: "1rem",
+          fontSize: "0.7rem",
         }}
       >
         Download CV

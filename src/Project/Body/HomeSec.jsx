@@ -9,39 +9,16 @@ export default function HomeSec() {
       <Box
         sx={{
           flex: 1,
-          textAlign: "left",
-          height: "70%",
-          mb: { xs: 12 },
-          ml: { lg: 10 },
+          display: "flex",
+          flexDirection: { xs: "column-reverse", md: "row" },
+          justifyContent: "center",
+          alignItems: "center",
+          gap: { xs: 4, md: 10, lg: 15, xl: 35 },
+          width: "100%",
+          height: "auto",
         }}
       >
         <RightHead />
-      </Box>{" "}
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "70%",
-          position: "relative",
-          minHeight: {
-            xs: "300px",
-            ss: "350px",
-            sm: "470px",
-            md: "350px",
-            ms: "470px",
-          },
-          minWidth: {
-            xs: "300px",
-            ss: "350px",
-            sm: "470px",
-            md: "350px",
-            ms: "470px",
-          },
-          mb: { sm: 7 },
-        }}
-      >
         <LeftHead />
       </Box>
     </>

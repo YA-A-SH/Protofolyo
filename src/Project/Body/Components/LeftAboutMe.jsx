@@ -32,7 +32,7 @@ export default function LeftAboutMe() {
     {
       year: "2025",
       pos: "75%",
-      title: "Mastery Under Fire – The Year of Professional Growth",
+      title: "Mastery Under Fire",
       info: "A year of profound transformation. Despite displacement and living in a tent, I mastered React, Next.js, and TypeScript, delving into RTK, Memoization, and API integration. Using AI and Docs, I built a Pharmacy Inventory System and a large-scale consolidated project. Despite the war’s impact on my GPA, I am resiliently finishing my final 46 credit hours, ready to bring my expertise to the global market.",
       skills: [
         "JavaScript (ES6+)",
@@ -83,9 +83,8 @@ export default function LeftAboutMe() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          height: { xs: "300px", sm: "400px", md: "280px", lg: "400px" },
-          width: "100px",
-          m: "13px auto",
+          height: { xs: "300px", sm: "400px", md: "280px", lg: "320px" },
+          width: { xs: "100px", md: "300px" },
         }}
       >
         <Box
@@ -164,54 +163,49 @@ export default function LeftAboutMe() {
             </Typography>
           </Box>
         ))}
+
+        <AnimatePresence>
+          {activeItem && (
+            <Box
+              component={motion.div}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              sx={{
+                width: { xs: 260, sm: 400, md: 300 },
+                p: 2.5,
+                background: "rgba(10, 25, 41, 0.95)",
+                backdropFilter: "blur(15px)",
+                borderRadius: "16px",
+                border: `1px solid ${theme.palette.background.main}55`,
+                pointerEvents: "none",
+                zIndex: 99999,
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ color: theme.palette.background.main, fontWeight: 800 }}
+              >
+                {activeItem.title}
+              </Typography>
+
+              <Typography
+                variant="body2"
+                sx={{ color: "rgba(255,255,255,0.7)", mb: 2 }}
+              >
+                {activeItem.info}
+              </Typography>
+
+              <Stack direction="row" flexWrap="wrap" gap={0.5}>
+                {activeItem.skills.map((s) => (
+                  <Chip key={s} label={s} size="small" />
+                ))}
+              </Stack>
+            </Box>
+          )}
+        </AnimatePresence>
       </Box>
-      <AnimatePresence>
-        {activeItem && (
-          <Box
-            component={motion.div}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            sx={{
-              position: "absolute",
-              // top: "50%",
-              // left: "50%",
-              // translateX: "-50%",
-              // translateY: "-50%",
-              width: { xs: 260, sm: 400 },
-              p: 2.5,
-              background: "rgba(10, 25, 41, 0.95)",
-              backdropFilter: "blur(15px)",
-              borderRadius: "16px",
-              border: `1px solid ${theme.palette.background.main}55`,
-              boxShadow: "0 20px 40px rgba(0,0,0,0.6)",
-              pointerEvents: "none",
-              zIndex: 99999,
-            }}
-          >
-            <Typography
-              variant="h6"
-              sx={{ color: theme.palette.background.main, fontWeight: 800 }}
-            >
-              {activeItem.title}
-            </Typography>
-
-            <Typography
-              variant="body2"
-              sx={{ color: "rgba(255,255,255,0.7)", mb: 2 }}
-            >
-              {activeItem.info}
-            </Typography>
-
-            <Stack direction="row" flexWrap="wrap" gap={0.5}>
-              {activeItem.skills.map((s) => (
-                <Chip key={s} label={s} size="small" />
-              ))}
-            </Stack>
-          </Box>
-        )}
-      </AnimatePresence>
     </>
   );
 }
