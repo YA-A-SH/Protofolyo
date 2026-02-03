@@ -11,8 +11,11 @@ import {
 } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 
 const LeftContact = () => {
+  const { t, i18n } = useTranslation();
+
   const theme = useTheme();
   const form = useRef();
   const [loading, setLoading] = useState(false);
@@ -56,12 +59,13 @@ const LeftContact = () => {
   return (
     <Box
       sx={{
+        direction: i18n.language === "ar" ? "rtl" : "ltr",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         height: "100%",
         maxWidth: "450px",
-        mt:5
+        mt: 5,
       }}
     >
       <Typography
@@ -70,16 +74,16 @@ const LeftContact = () => {
           color: theme.palette.background.main,
           fontWeight: "bold",
           mb: 2,
-          textAlign: "left",
+          textAlign: i18n.language === "ar" ? { lg: "right" } : { lg: "left" },
         }}
       >
-        Contact With Me
+        {t("Contact With Me")}
       </Typography>
 
       <form ref={form} onSubmit={sendEmail}>
         <TextField
           fullWidth
-          label="Your Name"
+          label={t("Your Name")}
           name="from_name"
           variant="outlined"
           required
@@ -87,7 +91,7 @@ const LeftContact = () => {
         />
         <TextField
           fullWidth
-          label="Your Mail"
+          label={t("Your Mail")}
           name="user_email"
           type="email"
           variant="outlined"
@@ -96,7 +100,7 @@ const LeftContact = () => {
         />
         <TextField
           fullWidth
-          label="Your Message"
+          label={t("Your Message")}
           name="message"
           multiline
           rows={3}
@@ -109,7 +113,7 @@ const LeftContact = () => {
         />
 
         <Button
-          type="submit"
+          type={t("submit")}
           variant="contained"
           disabled={loading}
           fullWidth
@@ -128,14 +132,14 @@ const LeftContact = () => {
           {loading ? (
             <CircularProgress size={20} color="inherit" />
           ) : (
-            "SEND MESSAGE"
+            t("SEND MESSAGE")
           )}
         </Button>
       </form>
 
       <Divider sx={{ borderColor: "rgba(255,255,255,0.05)", my: 2 }}>
         <Typography sx={{ color: "rgba(255,255,255,0.2)", fontSize: "0.7rem" }}>
-          OR
+          {t("OR")}
         </Typography>
       </Divider>
 
@@ -148,7 +152,7 @@ const LeftContact = () => {
         }}
       >
         <Typography sx={{ color: "white", opacity: 0.6, fontSize: "0.85rem" }}>
-          Reach out directly via
+          {t("Reach out directly via")}
         </Typography>
         <IconButton
           href="https://wa.me/970597398570"

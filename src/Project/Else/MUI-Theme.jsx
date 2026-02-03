@@ -1,5 +1,4 @@
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
+import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -18,7 +17,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Macondo", "cursive"].join(","),
+    fontFamily: ['"El Messiri"', "cursive"].join(","),
   },
   breakpoints: {
     values: {

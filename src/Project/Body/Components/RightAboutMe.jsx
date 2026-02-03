@@ -1,14 +1,15 @@
 import { Box, Typography, Chip, Stack, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function RightAboutMe() {
+  const { t, i18n } = useTranslation();
   const theme = useTheme();
   const skills = {
     Base: ["HTML5", "CSS3", "JavaScript"],
     Advanced: ["TypeScript", "React", "Next.js", "REST APIs"],
     Tools: ["RTK", "Axios", "MUI", "i18n", "Framer Motion", "Postman"],
   };
-
   const containerVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -35,6 +36,7 @@ export default function RightAboutMe() {
       whileInView="visible"
       viewport={{ once: true }}
       sx={{
+        direction: i18n.language === "ar" ? "rtl" : "ltr",
         maxHeight: { xs: "auto", md: "60vh", lg: "70vh" },
         overflowY: "auto",
         p: 2,
@@ -44,10 +46,7 @@ export default function RightAboutMe() {
         borderRadius: "24px",
         border: "1px solid rgba(153, 233, 255, 0.15)",
         position: "relative",
-        boxShadow:
-          "0 10px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(153, 255, 204, 0.02)",
         maxWidth: { xs: "100%", md: "400px" },
-        // overflow: "hidden",
       }}
     >
       <Box
@@ -81,12 +80,17 @@ export default function RightAboutMe() {
           // mb: 1.7,
           textTransform: "uppercase",
           letterSpacing: 2,
-          textAlign: { xs: "center", lg: "left" },
+
+          textAlign:
+            i18n.language === "ar"
+              ? { xs: "center", lg: "right" }
+              : { xs: "center", lg: "left" },
+
           fontSize: { xs: "1.5rem", lg: "1.8rem" },
         }}
       >
-        Technical{" "}
-        <span style={{ color: theme.palette.background.main }}>Arsenal</span>
+        {t("Technical")}{" "}
+        <span style={{ color: theme.palette.background.main }}>{t("Arsenal")}</span>
       </Typography>
 
       {/* Skills Groups */}
@@ -96,7 +100,10 @@ export default function RightAboutMe() {
             <Typography
               variant="overline"
               sx={{
-                textAlign: { xs: "center", lg: "left" },
+                textAlign:
+                  i18n.language === "ar"
+                    ? { xs: "center", lg: "right" }
+                    : { xs: "center", lg: "left" },
                 color: "#3eccfc",
                 fontWeight: "bold",
                 mb: { xs: 1, md: 0.5 },
@@ -104,7 +111,11 @@ export default function RightAboutMe() {
                 letterSpacing: 1.5,
               }}
             >
-              {category}
+              {category === "Base"
+                ? t("base")
+                : category === "Tools"
+                  ? t("tools")
+                  : t("advanced")}
             </Typography>
             <Box
               sx={{
@@ -148,12 +159,14 @@ export default function RightAboutMe() {
           mt: { xs: 4, md: 1 },
           color: "rgba(255,255,255,0.5)",
           fontStyle: "italic",
-          textAlign: { xs: "center", md: "left" },
+          textAlign:
+            i18n.language === "ar"
+              ? { xs: "center", lg: "right" }
+              : { xs: "center", lg: "left" },
           lineHeight: { xs: 1.6, md: 1.3 },
         }}
       >
-        While these are my primary tools, I am proficient in many others and
-        select the right tool for the specific needs of each project.
+        {t("desc2")}
       </Typography>
     </Box>
   );

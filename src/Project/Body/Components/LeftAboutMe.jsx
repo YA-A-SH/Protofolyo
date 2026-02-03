@@ -1,9 +1,11 @@
 import { Box, useTheme, Typography, Stack, Chip } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function LeftAboutMe() {
   const theme = useTheme();
+  const { t, i18n } = useTranslation();
 
   const [activeItem, setActiveItem] = useState(null);
 
@@ -11,29 +13,29 @@ export default function LeftAboutMe() {
     {
       year: "2022",
       pos: "0%",
-      title: "A Step into the Unknown",
-      info: "This year marked the official start of my bachelor’s degree. I entered a world I knew very little about; at the time, I didn't truly understand what 'programming' was or what this path held for me. Although anxiety was the dominant emotion during that period, it ultimately became my primary driver to explore this new field and take my first steps into the world of technology.",
+      title: t("A Step into the Unknown"),
+      info: t("desc3"),
       skills: ["Problem Solving", "Logic Building"],
     },
     {
       year: "2023",
       pos: "25%",
-      title: "Synergy and Resilience",
-      info: "In 2023, I partnered with a like-minded colleague to master Java (OOP, GUI, JavaFX) and SQL/SQLite. We began developing a custom e-commerce platform for Gaza, a project fueled by rapid innovation. However, our progress was forced to a halt in October due to the war, turning a year of technical growth into a testament of resilience.",
+      title: t("Synergy and Resilience"),
+      info: t("desc4"),
       skills: ["JavaFX", "SQL", "SQLite", "Software Architecture"],
     },
     {
       year: "2024",
       pos: "50%",
-      title: "Displacement, Adaptation, and Resilience",
-      info: "A year of 'educational survival.' Amidst displacement from Rafah, I assisted at my father's pharmacy while pivoting to Web Development (HTML/CSS). Despite the lack of electricity and internet, I resumed my university studies online in June, turning a period of immense personal struggle into a persistent pursuit of knowledge.",
+      title: t("Displacement, Adaptation, and Resilience"),
+      info: t("desc5"),
       skills: ["HTML5", "CSS3", "Responsive Design", "Self-Learning"],
     },
     {
       year: "2025",
       pos: "75%",
-      title: "Mastery Under Fire",
-      info: "A year of profound transformation. Despite displacement and living in a tent, I mastered React, Next.js, and TypeScript, delving into RTK, Memoization, and API integration. Using AI and Docs, I built a Pharmacy Inventory System and a large-scale consolidated project. Despite the war’s impact on my GPA, I am resiliently finishing my final 46 credit hours, ready to bring my expertise to the global market.",
+      title: t("Mastery Under Fire"),
+      info: t("desc6"),
       skills: [
         "JavaScript (ES6+)",
         "TypeScript",
@@ -47,8 +49,8 @@ export default function LeftAboutMe() {
     {
       year: "2026",
       pos: "100%",
-      title: "The Launchpad – Reaching the World",
-      info: "Focused on bridging the gap between my projects and the global market by finalizing my portfolio. If you are reading this, my resilience has reached its destination. My 2026 roadmap includes mastering Docker and Backend development to evolve into a versatile Full-Stack Developer. My goal is to transition from a survivor of circumstances to a leader in technology.",
+      title: t("The Launchpad – Reaching the World"),
+      info: t("desc7"),
       skills: [],
     },
   ];
@@ -79,6 +81,7 @@ export default function LeftAboutMe() {
         whileInView="visible"
         viewport={{ once: true }}
         sx={{
+          direction: i18n.language === "ar" ? "rtl" : "ltr",
           position: "relative",
           display: "flex",
           flexDirection: "column",

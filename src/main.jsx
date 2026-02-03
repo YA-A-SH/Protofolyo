@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import theme from "./Project/Else/MUI-Theme.jsx";
-
+import "./i18n.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>

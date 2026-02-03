@@ -1,16 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function SoftAndFront() {
-    const sideTitleVariants = {
-      hidden: { clipPath: "inset(0 100% 0 0)", x: -50 },
-      visible: {
-        clipPath: "inset(0 0% 0 0)",
-        x: 0,
-        transition: { duration: 1.3, ease: "easeOut" },
-      },
-    };
-  
+  const sideTitleVariants = {
+    hidden: { clipPath: "inset(0 100% 0 0)", x: -50 },
+    visible: {
+      clipPath: "inset(0 0% 0 0)",
+      x: 0,
+      transition: { duration: 1.3, ease: "easeOut" },
+    },
+  };
+
+  const { t } = useTranslation();
   return (
     <>
       <Box
@@ -32,8 +34,6 @@ export default function SoftAndFront() {
           justifyContent: "center",
           alignItems: "center",
           zIndex: 2,
-          // bgcolor: "red",
-          // px: { xs: 1 },
         }}
       >
         <Typography
@@ -50,7 +50,7 @@ export default function SoftAndFront() {
             whiteSpace: "nowrap",
           }}
         >
-          Software Engineer
+          {t("Software Engineer")}
         </Typography>
       </Box>
 
@@ -94,7 +94,7 @@ export default function SoftAndFront() {
             whiteSpace: "nowrap",
           }}
         >
-          Front End Developer
+          {t("Front End Developer")}
         </Typography>
       </Box>
     </>

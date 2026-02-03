@@ -2,6 +2,7 @@ import { Box, Typography, Divider, Button, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import DownloadIcon from "@mui/icons-material/Download";
 import myCv from "../../assets/YA.A.SH-CV.pdf";
+import { useTranslation } from "react-i18next";
 export default function RightHead() {
   const theme = useTheme();
   const containerVariants = {
@@ -24,6 +25,7 @@ export default function RightHead() {
     visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
   };
 
+  const { t, i18n } = useTranslation();
   return (
     <Box
       component={motion.div}
@@ -89,13 +91,16 @@ export default function RightHead() {
         sx={{
           fontWeight: 900,
           fontSize: { xs: "1.8rem", md: "2rem", xl: "2.4rem" },
-          textAlign: { xs: "center", md: "left" },
+          textAlign:
+            i18n.language === "ar"
+              ? { xs: "center", lg: "right" }
+              : { xs: "center", lg: "left" },
           letterSpacing: -0.5,
           color: "#fff",
           textShadow: "0 0 20px rgba(255,255,255,0.1)",
         }}
       >
-        ENGINEERING
+        {t("ENGINEERING")}
       </Typography>
 
       {/* EXPERIENCES */}
@@ -107,12 +112,15 @@ export default function RightHead() {
           mb: 2,
           color: "#3eccfc",
           fontWeight: 700,
-          textAlign: { xs: "center", md: "left" },
+          textAlign:
+            i18n.language === "ar"
+              ? { xs: "center", lg: "right" }
+              : { xs: "center", lg: "left" },
           letterSpacing: 4,
           textTransform: "uppercase",
         }}
       >
-        EXPERIENCES
+        {t("EXPERIENCES")}
       </Typography>
 
       <Divider
@@ -124,7 +132,11 @@ export default function RightHead() {
           borderBottomWidth: 3,
           borderRadius: 2,
           borderColor: theme.palette.background.main,
-          alignSelf: { xs: "center", md: "flex-start" },
+          alignSelf:
+            i18n.language === "ar"
+              ? { xs: "center", md: "flex-end" }
+              : { xs: "center", md: "flex-start" },
+
           boxShadow: `0 0 10px ${theme.palette.background.main}`,
         }}
       />
@@ -138,19 +150,19 @@ export default function RightHead() {
           lineHeight: { xs: 1.2, md: 1.3, ms: 1.6 },
           color: "rgba(255,255,255,0.7)",
           fontSize: { xs: "0.9rem", md: "0.9rem", xl: "1.1rem" },
-          textAlign: "justify",
+          textAlign:
+            i18n.language === "ar"
+              ? { xs: "center", lg: "right" }
+              : { xs: "center", lg: "left" },
         }}
       >
-        As a Bachelor of{" "}
+        {t("As a Bachelor of")}{" "}
         <span
           style={{ color: theme.palette.background.main, fontWeight: "bold" }}
         >
-          Software Engineering
+          {t("Software Engineering")}
         </span>{" "}
-        student at the University of Palestine, I go beyond mere coding to
-        engineer web systems. I specialize in transforming complex designs into
-        high-performance, live interfaces with a rigorous focus on scalability
-        and UX standards.
+        {t("desc1")}
       </Typography>
 
       <Button
@@ -181,7 +193,7 @@ export default function RightHead() {
           fontSize: "0.7rem",
         }}
       >
-        Download CV
+        {t("Download CV")}
       </Button>
     </Box>
   );

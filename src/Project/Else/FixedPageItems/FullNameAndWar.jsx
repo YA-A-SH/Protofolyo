@@ -1,7 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function FullAndWar({ sideTitleVariants }) {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box
@@ -23,7 +26,6 @@ export default function FullAndWar({ sideTitleVariants }) {
           justifyContent: "center",
           alignItems: "center",
           mb: 1,
-          // bgcolor: "red",
           ml: { md: 2 },
         }}
       >
@@ -42,7 +44,7 @@ export default function FullAndWar({ sideTitleVariants }) {
             whiteSpace: "nowrap",
           }}
         >
-          Yaser Ali Shagfa
+          {t("Yaser Ali Shagfa")}
         </Typography>
       </Box>
       <Box
@@ -64,7 +66,6 @@ export default function FullAndWar({ sideTitleVariants }) {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
-          // bgcolor: "red",
           mb: { sm: 0.4, md: 0, lg: 1 },
         }}
       >
@@ -82,14 +83,14 @@ export default function FullAndWar({ sideTitleVariants }) {
             fontWeight: "bold",
           }}
         >
-          From Gaza :{" "}
+          {t("From Gaza :")}{" "}
           <Box
             component="br"
             sx={{
               display: { xs: "block", md: "none" },
             }}
           />{" "}
-          Means War Engineer
+          {t("Means War Engineer")}
         </Typography>
       </Box>
     </>

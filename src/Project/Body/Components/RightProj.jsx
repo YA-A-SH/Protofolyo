@@ -15,10 +15,11 @@ import {
   Chip,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function RightProj() {
   const theme = useTheme();
-
+  const { t, i18n } = useTranslation();
   const containerVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -56,7 +57,6 @@ export default function RightProj() {
         border: "1px solid rgba(153, 233, 255, 0.15)",
         boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
         position: "relative",
-        // overflow: "hidden",
         maxWidth: "550px",
       }}
     >
@@ -77,14 +77,19 @@ export default function RightProj() {
         <Typography
           sx={{
             fontWeight: 900,
-            fontSize: { xs: "1.2rem", md: "1.6rem" }, // صغرت الخط قليلاً
+            fontSize: { xs: "1.2rem", md: "1.6rem" },
             color: "#fff",
             display: "flex",
             alignItems: "center",
+            textAlign:
+              i18n.language === "ar"
+                ? { justifyContent: "end" }
+                : { justifyContent: "start" },
             gap: 1,
           }}
         >
-          <span style={{ fontSize: "1.8rem" }}>🍽️</span> Restaurant System
+          <span style={{ fontSize: "1.8rem" }}>🍽️</span>{" "}
+          {t("Restaurant System")}
         </Typography>
         <Typography
           sx={{
@@ -93,9 +98,11 @@ export default function RightProj() {
             fontSize: "0.75rem",
             textTransform: "uppercase",
             letterSpacing: 1.5,
+            textAlign:
+              i18n.language === "ar" ? { lg: "right" } : { lg: "left" },
           }}
         >
-          Full-Stack Solution / Admin Dashboard
+          {t("Full-Stack Solution / Admin Dashboard")}
         </Typography>
       </Box>
 
@@ -104,6 +111,11 @@ export default function RightProj() {
         sx={{
           mb: 2,
           width: "50px",
+          alignSelf:
+            i18n.language === "ar"
+              ? { xs: "center", md: "flex-end" }
+              : { xs: "center", md: "flex-start" },
+
           borderColor: theme.palette.background.main,
         }}
       />
@@ -117,10 +129,10 @@ export default function RightProj() {
           lineHeight: 1.5,
           fontSize: "0.85rem",
           mb: 2,
+          textAlign: i18n.language === "ar" ? { lg: "right" } : { lg: "left" },
         }}
       >
-        High-performance <b>React</b> app with scalable architecture (SOLID).
-        Features seamless customer UX and a robust management system.
+        {t("High-performance")} <b>{t("React")}</b> {t("desc8")}
       </Typography>
 
       {/* Features */}
@@ -128,15 +140,15 @@ export default function RightProj() {
         {[
           {
             icon: <Extension sx={{ fontSize: 16 }} />,
-            text: "Localization (i18n): 5,000+ entries.",
+            text: t("Localization (i18n): 5,000+ entries."),
           },
           {
             icon: <SettingsSuggest sx={{ fontSize: 16 }} />,
-            text: "Admin: Real-time analytics & inventory.",
+            text: t("Admin: Real-time analytics & inventory."),
           },
           {
             icon: <Devices sx={{ fontSize: 16 }} />,
-            text: "Optimized: Fast loads via Lazy/Memoization.",
+            text: `${t("Optimized: Fast loads via")} ${t("Lazy/Memoization.")}`,
           },
         ].map((feature, idx) => (
           <Box
@@ -146,14 +158,25 @@ export default function RightProj() {
             sx={{
               display: "flex",
               alignItems: "center",
+              direction: i18n.language === "ar" ? "rtl" : "ltr",
               gap: 1.5,
               color: "rgba(255,255,255,0.8)",
             }}
           >
-            <Box sx={{ color: theme.palette.background.main, display: "flex" }}>
+            <Box
+              sx={{
+                color: theme.palette.background.main,
+                display: "flex",
+              }}
+            >
               {feature.icon}
             </Box>
-            <Typography variant="body2" sx={{ fontSize: "0.8rem" }}>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "0.8rem",
+              }}
+            >
               {feature.text}
             </Typography>
           </Box>
@@ -164,7 +187,13 @@ export default function RightProj() {
       <Box
         component={motion.div}
         variants={itemVariants}
-        sx={{ display: "flex", flexWrap: "wrap", gap: 0.8, mb: 3 }}
+        sx={{
+          display: "flex",
+          direction: i18n.language === "ar" ? "rtl" : "ltr",
+          flexWrap: "wrap",
+          gap: 0.8,
+          mb: 3,
+        }}
       >
         {techStack.map((tech) => (
           <Chip
@@ -207,7 +236,7 @@ export default function RightProj() {
             "&:hover": { bgcolor: "#fff" },
           }}
         >
-          Demo
+          {t("Live Demo")}
         </Button>
         <Button
           variant="outlined"
@@ -227,7 +256,7 @@ export default function RightProj() {
             "&:hover": { borderColor: "#fff", color: "#fff" },
           }}
         >
-          Code
+          {t("Source Code")}
         </Button>
       </Stack>
     </Box>

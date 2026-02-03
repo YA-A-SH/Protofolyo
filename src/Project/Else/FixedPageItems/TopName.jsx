@@ -1,9 +1,12 @@
 import { Email, GitHub, LinkedIn } from "@mui/icons-material";
 import { Box, IconButton, Stack, Typography, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function TopNameAndBtmLinks() {
   const theme = useTheme();
+  const { i18n } = useTranslation();
+
   const letterVariants = {
     hidden: { y: 20, opacity: 0, rotate: -20 },
     visible: {
@@ -27,6 +30,10 @@ export default function TopNameAndBtmLinks() {
       href: "https://www.linkedin.com/in/ya-a-sh-4494743a3",
     },
   ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <>
       <Stack
@@ -42,6 +49,7 @@ export default function TopNameAndBtmLinks() {
           position: "absolute",
           top: 0,
           px: { xs: 3, md: 4, xl: 6 },
+          py: { sm: 2 },
 
           "&::after": {
             content: '""',
@@ -93,8 +101,8 @@ export default function TopNameAndBtmLinks() {
           }}
           transition={{ duration: 1.5, delay: 1.3 }}
           sx={{
-            width: "7px",
-            height: "7px",
+            width: "17px",
+            height: "17px",
             border: "2px solid black",
             borderRadius: "50%",
             bgcolor: theme.palette.background.default,
@@ -103,7 +111,21 @@ export default function TopNameAndBtmLinks() {
             top: "0px",
             transform: "translateY(-20%)",
           }}
-        />
+        >
+          <Typography
+            onClick={() => changeLanguage("ar")}
+            sx={{
+              cursor: "pointer",
+              fontSize: "1rem",
+              position: "absolute",
+              top: "40%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            ع
+          </Typography>
+        </Box>
         {/* YA.A.SH */}
         <Typography
           component={motion.h1}
@@ -126,7 +148,7 @@ export default function TopNameAndBtmLinks() {
             <motion.span
               key={i}
               variants={letterVariants}
-              style={{ display: "inline-block" }}
+              style={{ display: "inline-block", padding: { sm: 2 } }}
             >
               {char === " " ? "\u00A0" : char}
             </motion.span>
@@ -143,8 +165,8 @@ export default function TopNameAndBtmLinks() {
           }}
           transition={{ duration: 1.5, delay: 1.3 }}
           sx={{
-            width: "7px",
-            height: "7px",
+            width: "17px",
+            height: "17px",
             border: "2px solid black",
             borderRadius: "50%",
             bgcolor: theme.palette.background.default,
@@ -153,7 +175,22 @@ export default function TopNameAndBtmLinks() {
             top: "0px",
             transform: "translateY(-20%)",
           }}
-        />
+        >
+          {" "}
+          <Typography
+            onClick={() => changeLanguage("en")}
+            sx={{
+              cursor: "pointer",
+              fontSize: "0.7rem",
+              position: "absolute",
+              top: "60%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            EN
+          </Typography>
+        </Box>
         {/* Second Line */}
         <Box
           component={motion.div}

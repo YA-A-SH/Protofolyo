@@ -1,9 +1,11 @@
 import { Box, Divider, Typography, useTheme, Stack } from "@mui/material";
 import { motion } from "framer-motion";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
+import { useTranslation } from "react-i18next";
 
 export default function RightContact() {
   const theme = useTheme();
+  const { t, i18n } = useTranslation();
 
   const containerVariants = {
     hidden: { opacity: 0, x: 50 },
@@ -27,6 +29,7 @@ export default function RightContact() {
       whileInView="visible"
       viewport={{ once: true }}
       sx={{
+        direction: i18n.language === "ar" ? "rtl" : "ltr",
         display: "flex",
         flexDirection: "column",
         width: "100%",
@@ -71,7 +74,7 @@ export default function RightContact() {
               letterSpacing: -0.5,
             }}
           >
-            Let's Build Together
+            {t("Let's Build Together")}
           </Typography>
         </Stack>
       </Box>
@@ -99,13 +102,12 @@ export default function RightContact() {
             fontWeight: 500,
           }}
         >
-          "Every great system starts with a conversation. Whether you have a
+          {t("Every great system starts with a conversation. Whether you have a")}
           <span style={{ color: theme.palette.background.main }}>
             {" "}
-            clear vision{" "}
+            {t("clear vision")}{" "}
           </span>
-          or just a <span style={{ color: "#3eccfc" }}> rough idea</span>, I’m
-          here to engineer the solution."
+          {t("or just a")} <span style={{ color: "#3eccfc" }}> {t("rough idea")}</span>{t("desc9")}
         </Typography>
 
         <Box
@@ -121,7 +123,7 @@ export default function RightContact() {
           <Typography
             sx={{ color: "#fff", fontSize: "0.85rem", mb: 1, fontWeight: 700 }}
           >
-            🚀 Why me?
+            🚀 {t("Why me?")}
           </Typography>
           <Typography
             sx={{
@@ -130,8 +132,7 @@ export default function RightContact() {
               lineHeight: 1.4,
             }}
           >
-            Scalable Architecture • High Performance • Clean Code • Ongoing
-            Technical Support.
+            {t("desc10")}
           </Typography>
         </Box>
 
@@ -147,7 +148,7 @@ export default function RightContact() {
             mt: 1,
           }}
         >
-          Consultation is always free. Let’s talk!
+          {t("Consultation is always free. Let’s talk!")}
         </Typography>
       </Stack>
     </Box>

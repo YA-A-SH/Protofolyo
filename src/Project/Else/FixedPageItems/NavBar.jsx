@@ -1,15 +1,17 @@
 import { Code, Fingerprint, Handshake, Home } from "@mui/icons-material";
 import { Box, useTheme, IconButton, Typography, Tooltip } from "@mui/material";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 export default function NavBar({ handleSectionChange, section }) {
   const theme = useTheme();
+  const { i18n, t } = useTranslation();
 
   const nav = [
-    { icon: <Home />, title: "Home", sec: "home" },
-    { icon: <Fingerprint />, title: "About Me", sec: "aboutMe" },
-    { icon: <Code />, title: "Projects", sec: "projects" },
-    { icon: <Handshake />, title: "Contact", sec: "contact" },
+    { icon: <Home />, title: t("Home"), sec: "home" },
+    { icon: <Fingerprint />, title: t("About Me"), sec: "aboutMe" },
+    { icon: <Code />, title: t("Projects"), sec: "projects" },
+    { icon: <Handshake />, title: t("Contact"), sec: "contact" },
   ];
 
   const iconVariants = {
@@ -54,6 +56,7 @@ export default function NavBar({ handleSectionChange, section }) {
       animate={{ opacity: 1, y: 0, x: "-50%" }}
       transition={{ duration: 1, delay: 2.4 }}
       sx={{
+        direction: i18n.language === "ar" ? "rtl" : "ltr",
         position: "fixed",
         width: { xs: "90%", sm: "70%", md: "40%" },
         height: "60px",
@@ -61,7 +64,6 @@ export default function NavBar({ handleSectionChange, section }) {
         left: "50%",
         borderRadius: "50px",
         px: { xs: 1, sm: 3 },
-
         display: "flex",
         alignItems: "center",
         justifyContent: "space-around",
