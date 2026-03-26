@@ -4,15 +4,15 @@ import FullAndWar from "./FixedPageItems/FullNameAndWar";
 import TopNameAndBtmLinks from "./FixedPageItems/TopName";
 import SoftAndFront from "./FixedPageItems/SoftAndFront";
 import NavBar from "./FixedPageItems/NavBar";
-import HomeSec from "../Body/HomeSec";
-import {  useState } from "react";
-import AboutMe from "../Body/AboutMe";
-import MyProjects from "../Body/MyProjects";
-import ContactMe from "../Body/ContactMe";
+import { lazy, Suspense, useState } from "react";
+import Loader from "./Loader";
+const ContactMe = lazy(() => import("../Body/ContactMe"));
+const MyProjects = lazy(() => import("../Body/MyProjects"));
+const AboutMe = lazy(() => import("../Body/AboutMe"));
+const HomeSec = lazy(() => import("../Body/HomeSec"));
 
 export default function AllConverter() {
   const theme = useTheme();
-
 
   const containerVariants = {
     hidden: {
@@ -132,10 +132,26 @@ export default function AllConverter() {
                   flexDirection: "inherit",
                 }}
               >
-                {section === "home" && <HomeSec />}
-                {section === "aboutMe" && <AboutMe />}
-                {section === "projects" && <MyProjects />}
-                {section === "contact" && <ContactMe />}
+                {section === "home" && (
+                  <Suspense fallback={<Loader />}>
+                    <HomeSec />
+                  </Suspense>
+                )}
+                {section === "aboutMe" && (
+                  <Suspense fallback={<Loader />}>
+                    <AboutMe />
+                  </Suspense>
+                )}
+                {section === "projects" && (
+                  <Suspense fallback={<Loader />}>
+                    <MyProjects />
+                  </Suspense>
+                )}
+                {section === "contact" && (
+                  <Suspense fallback={<Loader />}>
+                    <ContactMe />
+                  </Suspense>
+                )}
               </motion.div>
             </AnimatePresence>
 
@@ -151,7 +167,7 @@ export default function AllConverter() {
                     left: 0,
                     right: 0,
                     height: "2px",
-                    background: theme.palette.primary.main, // أو اللون السماوي عندك
+                    background: theme.palette.primary.main,
                     boxShadow: `0 0 15px ${theme.palette.primary.main}`,
                     zIndex: 10,
                     pointerEvents: "none",

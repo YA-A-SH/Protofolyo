@@ -1,19 +1,19 @@
 import { Box, useTheme } from "@mui/material";
-import myLogo from "../../assets/myLogo.png";
-import html from "../../assets/html.png";
-import css from "../../assets/css.png";
-import js from "../../assets/js.png";
-import react from "../../assets/react.png";
-import api from "../../assets/api.png";
-import next from "../../assets/next.png";
-import ts from "../../assets/ts.png";
-import postman from "../../assets/postman.png";
-import axios from "../../assets/axios.png";
-import mui from "../../assets/mui.png";
-import framerMotion from "../../assets/framermotion.png";
-import i18n from "../../assets/i18n.png";
-import reactRouter from "../../assets/reactRouter.png";
-import redux from "../../assets/redux.png";
+import myLogo from "../../assets/myLogo.webp";
+import html from "../../assets/html.webp";
+import css from "../../assets/css.webp";
+import js from "../../assets/js.webp";
+import react from "../../assets/react.webp";
+import api from "../../assets/api.webp";
+import next from "../../assets/next.webp";
+import ts from "../../assets/ts.webp";
+import postman from "../../assets/postman.webp";
+import axios from "../../assets/axios.webp";
+import mui from "../../assets/mui.webp";
+import framerMotion from "../../assets/framermotion.webp";
+import i18n from "../../assets/i18n.webp";
+import reactRouter from "../../assets/reactRouter.webp";
+import redux from "../../assets/redux.webp";
 import Skills from "./Components/Skills";
 import { motion } from "framer-motion";
 
@@ -69,7 +69,6 @@ export default function LeftHead() {
   return (
     <Box
       sx={{
-        // bgcolor: "red",
         position: "relative",
         display: "flex",
         justifyContent: "center",
@@ -81,9 +80,7 @@ export default function LeftHead() {
         },
         width: {
           xs: `calc(${outerSize.xs} + 80px)`,
-          // sm: `calc(${outerSize.sm} + 100px)`,
-          // lg: `calc(${outerSize.lg} + 120px)`,
-        },
+      },
         flexShrink: 0,
       }}
     >
@@ -131,15 +128,10 @@ export default function LeftHead() {
         animate={orbitAnimation(2, 17)}
         sx={{
           height: middleSize,
-
           width: middleSize,
-
           position: "absolute",
-
           border: `2px solid ${theme.palette.background.main}`,
-
           borderRadius: "50%",
-
           pointerEvents: "none",
         }}
       >

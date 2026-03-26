@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
-import RightHead from "../Header/RightHead";
-import LeftHead from "../Header/LeftHead";
+import { lazy, Suspense } from "react";
+import Loader from "../Else/Loader";
+const RightHead = lazy(() => import("../Header/RightHead"));
+const LeftHead = lazy(() => import("../Header/LeftHead"));
 
 export default function HomeSec() {
   return (
@@ -18,8 +20,12 @@ export default function HomeSec() {
           height: "auto",
         }}
       >
-        <RightHead />
-        <LeftHead />
+        <Suspense fallback={<Loader />}>
+          <RightHead />
+        </Suspense>
+        <Suspense fallback={<Loader />}>
+          <LeftHead />
+        </Suspense>
       </Box>
     </>
   );

@@ -5,11 +5,9 @@ const AllConverter = lazy(() => import("./Project/Else/AllConverter"));
 
 function App() {
   return (
-    <>
-      <Suspense fallback={<Loader />}>
-        <AllConverter />
-      </Suspense>
-    </>
+    <Suspense fallback={<Loader />}>
+      <AllConverter />
+    </Suspense>
   );
 }
 

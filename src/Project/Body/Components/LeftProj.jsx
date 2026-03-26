@@ -3,17 +3,46 @@ import { Box, IconButton, Stack, useTheme } from "@mui/material";
 import { ArrowBackIosNew, ArrowForwardIos } from "@mui/icons-material";
 import { motion, AnimatePresence } from "framer-motion";
 
-import fir from "../../../assets/ProjPhotos/1.png";
-import sec from "../../../assets/ProjPhotos/2.png";
-import the from "../../../assets/ProjPhotos/3.png";
-import fou from "../../../assets/ProjPhotos/4.png";
-import fif from "../../../assets/ProjPhotos/5.png";
-import sex from "../../../assets/ProjPhotos/6.png";
+import fir from "../../../assets/ProjPhotos/1.webp";
+import sec from "../../../assets/ProjPhotos/2.webp";
+import the from "../../../assets/ProjPhotos/3.webp";
+import fou from "../../../assets/ProjPhotos/4.webp";
+import fif from "../../../assets/ProjPhotos/5.webp";
+import sex from "../../../assets/ProjPhotos/6.webp";
+import sev from "../../../assets/ProjPhotos/7.webp";
+import egh from "../../../assets/ProjPhotos/8.webp";
+import nin from "../../../assets/ProjPhotos/9.webp";
+import ten from "../../../assets/ProjPhotos/10.webp";
+import ele from "../../../assets/ProjPhotos/11.webp";
+import tew from "../../../assets/ProjPhotos/12.webp";
+import ther from "../../../assets/ProjPhotos/13.webp";
+import fift from "../../../assets/ProjPhotos/15.webp";
+import sexteen from "../../../assets/ProjPhotos/16.webp";
+import seventeen from "../../../assets/ProjPhotos/17.webp";
+import eghtteen from "../../../assets/ProjPhotos/18.webp";
 
 export default function LeftProj() {
-  const images = [fir, sec, the, fou, fif, sex];
+  const images = [
+    fir,
+    sec,
+    the,
+    fou,
+    fif,
+    sex,
+    sev,
+    egh,
+    nin,
+    ten,
+    ele,
+    tew,
+    ther,
+    fift,
+    sexteen,
+    seventeen,
+    eghtteen,
+  ];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0); // 1 لليمين، -1 لليسار
+  const [direction, setDirection] = useState(0);
   const theme = useTheme();
   const handleNext = useCallback(() => {
     setDirection(1);
@@ -82,6 +111,7 @@ export default function LeftProj() {
           <Box
             key={currentIndex}
             component={motion.img}
+            loading="lazy"
             src={images[currentIndex]}
             custom={direction}
             variants={variants}

@@ -43,6 +43,7 @@ export default function Skills({ logo, angle, radius }) {
         <Box
           component="img"
           src={logo}
+          loading="lazy"
           alt="My Logo"
           sx={{ bgcolor: "background.default" }}
         />
